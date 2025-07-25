@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "setup": "npm install && npm run ai:init && npm run db:setup",
+    "db:setup": "npm run db:migrate && npm run db:seed",
+    "db:migrate": "npx drizzle-kit generate && npx drizzle-kit push",
+    "db:seed": "tsx server/seed.ts",
+    "db:reset": "npx drizzle-kit drop && npm run db:setup",
+    "ai:init": "python ai_agent/setup.py",
+    "ai:download-models": "python ai_agent/download_models.py",
+    "ai:train": "python ai_agent/cli.py train",
+    "ai:test": "python ai_agent/cli.py test",
+    "ai:deploy": "python ai_agent/cli.py deploy"
+  }
+}
